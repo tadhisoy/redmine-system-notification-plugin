@@ -1,12 +1,9 @@
 class SystemNotificationController < ApplicationController
   unloadable
   layout 'base'
-  before_filter :require_admin
   protect_from_forgery :except => [:create, :users_since]
   
   def index
-#    flash[:notice]=''
-#    flash[:error]=nil
     @system_notification = SystemNotification.new
   end
   
@@ -19,7 +16,7 @@ class SystemNotificationController < ApplicationController
                                                                   })
     end
     if @system_notification.deliver
-      flash[:notice] = "System Notification was successfully sent."
+      flash[:notice] = l('system_notification_was_successfully_sent') #"System Notification was successfully sent."
       redirect_to :action => 'index'
     else
       flash[:error] = "System Notification was not sent."
