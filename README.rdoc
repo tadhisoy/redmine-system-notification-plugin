@@ -15,19 +15,20 @@ A copy of the plugin can be downloaded from {GitHub}[http://github.com/tadihsoy/
 
 == Installation and Setup
 
-1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins Make sure the plugin is installed to +vendor/plugins/system_notification_plugin+
+1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins Make sure the plugin is installed to +plugins/system_notification+
 2. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
 
 == Usage
 
 To send an email:
 
-1. Login to Redmine as an Administrator
-2. Browse to the Administration panel
-3. Select the System Notifications Panel
+1. Login to Redmine
+2. Browse to the Administration panel and Select the System Notifications Panel
+   or Click System Notification in account menu
 4. Pick which users to send the notification to
 5. Enter the Subject and Body of the email
 6. Click Send
+
 
 == License
 
