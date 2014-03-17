@@ -4,6 +4,7 @@ class SystemNotification
   attr_accessor :body
   attr_accessor :users
   attr_accessor :errors
+  attr_accessor :model_name
 
   if Redmine.const_defined?(:I18n)
     include Redmine::I18n
@@ -81,11 +82,23 @@ class SystemNotification
   end
 
   def self.conditions(time, filters = { })
-    c = ARCondition.new
-    c.add ["#{User.table_name}.status = ?", User::STATUS_ACTIVE]
-    c.add ["#{User.table_name}.last_login_on > (?)", time_frame(time)] unless time.to_sym == :all
-    c.add ["project_id IN (?)", filters[:projects]] if filters[:projects]
-    return c.conditions
+    #c = ARCondition.new
+    #c.add ["#{User.table_name}.status = ?", User::STATUS_ACTIVE]
+    #c.add ["#{User.table_name}.last_login_on > (?)", time_frame(time)] unless time.to_sym == :all
+    #c.add ["project_id IN (?)", filters[:projects]] if filters[:projects]
+    #return c.conditions
+    c = [""]
+    c[0] << "#{User.table_name}.status = ? "
+    c << User::STATUS_ACTIVE
+    unless time.to_sym == :all
+      c[0] << "AND #{User.table_name}.last_login_on > (\"#{time_frame(time)}\") "
+    end
+    filts = filters[:projects].to_a
+    filts.delete_if {|i| i == "" }
+    if filts.size > 0
+      c[0] << "AND project_id IN (#{filts.join(",")}) "
+    end
+    return c
   end
 
 end

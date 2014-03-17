@@ -1,7 +1,12 @@
 <h1><%= l(:system_notification)%></h1>
 
-<% labelled_tabular_form_for :system_notification, @system_notification, {:url =>{:action => 'create'}, :html => {:id => 'system_notification'}} do |f|  %>
+<%= javascript_include_tag("/plugin_assets/system_notification/javascripts/prototype.js") %>
+<%#= javascript_include_tag("/plugin_assets/system_notification/javascripts/prototype_ujs.js") %>
+<%#= javascript_include_tag("/plugin_assets/system_notification/javascripts/effects.js") %>
+<%#= javascript_include_tag("/plugin_assets/system_notification/javascripts/dragdrop.js") %>
+<%#= javascript_include_tag("/plugin_assets/system_notification/javascripts/controls.js") %>
 
+<%= labelled_form_for :system_notification, @system_notification, {:url =>{:action => 'create'}, :html => {:id => 'system_notification'}} do |f| %>
 <div class="box"> 
   <p>
     <%= f.select 'time', SystemNotification.times.invert.to_a.sort, :include_blank => true %>
@@ -19,12 +24,13 @@
     <%= render :partial => 'users', :object => @system_notification.users %>
   </p>
 
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 </div>
 <%= submit_tag l(:button_send) -%> <input type="reset" value="<%= l(:button_clear) -%>" onclick="$('user_items').innerHTML = '';" />
 
 <% end -%>
 
-<%= observe_field 'system_notification_time',
+<%= observe_field "system_notification_time",
 :url => { :action => :users_since },
 :update => :user_list,
       :with => "$('system_notification').serialize()"

@@ -2,8 +2,11 @@ class SystemNotificationController < ApplicationController
   unloadable
   layout 'base'
   before_filter :require_admin
+  protect_from_forgery :except => [:create, :users_since]
   
   def index
+#    flash[:notice]=''
+#    flash[:error]=nil
     @system_notification = SystemNotification.new
   end
   

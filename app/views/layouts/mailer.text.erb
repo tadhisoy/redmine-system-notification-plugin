@@ -1,0 +1,6 @@
+<% if Setting.emails_header.present? -%>
+<%= Setting.emails_header %>
+<% end -%>
+<%= yield %>
+-- 
+This mail sent by system_notification.

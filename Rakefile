@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-PROJECT_NAME = 'system_notification_plugin'
+PROJECT_NAME = 'system_notification'
 REDMINE_PROJECT_NAME = 'redmine-notify'
 
 # ----------
@@ -115,13 +115,13 @@ end
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
-    s.name = "system_notification_plugin"
+    s.name = "system_notification"
     s.summary = "The System Notification plugin allows Administrators to send systemwide email notifications to specific users."
     s.email = "edavis@littlestreamsoftware.com"
     s.homepage = "https://projects.littlestreamsoftware.com/projects/TODO"
     s.description = "The System Notification plugin allows Administrators to send systemwide email notifications to specific users."
     s.authors = ["Eric Davis"]
-    s.rubyforge_project = "system_notification_plugin" # TODO
+    s.rubyforge_project = "system_notification" # TODO
     s.files =  FileList[
                         "[A-Z]*",
                         "init.rb",

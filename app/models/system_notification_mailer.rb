@@ -1,18 +1,14 @@
-class SystemNotificationMailer < Mailer
+class SystemNotificationMailer < Mailer2
+
   def system_notification(system_notification)
-    recipients system_notification.users.collect(&:mail)
-    subject system_notification.subject
-    from User.current.mail
-    
-    content_type "multipart/alternative"
 
-    part "text/plain" do |p|
-      p.body = render_message("system_notification.erb", :body => system_notification.body)
+    Rails.logger.info "deb: #{User.current.mail}"
+    @body = system_notification.body
+    mail(:to => system_notification.users.collect(&:mail), :subject => system_notification.subject, :from => User.current.mail) do |format|
+#    mail(:to => system_notification.users.collect(&:mail), :subject => system_notification.subject) do |format|
+      format.text ## { render layout: "system_notification.text" }
+      format.html ## { render layout: "system_notification.html" }
     end
-    
-    part "text/html" do |p|
-      p.body = render_message("system_notification.text.html.erb", :body => system_notification.body)
-    end
-
   end
+
 end

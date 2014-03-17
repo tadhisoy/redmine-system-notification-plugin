@@ -6,10 +6,11 @@ System Notifications is a Redmine plugin that will allow an Administrator to sen
 
 * Send email to recently logged in users
 * Ajax user selector to preview which users will receive the email
+* fix for redmine-2.4.x.
 
 == Getting the plugin
 
-A copy of the plugin can be downloaded from {Little Stream Software}[https://projects.littlestreamsoftware.com/projects/list_files/redmine-notify] or from {GitHub}[http://github.com/edavis10/redmine-system-notification-plugin/tree/master]
+A copy of the plugin can be downloaded from {GitHub}[http://github.com/tadihsoy/redmine-system-notification-plugin/tree/master]
 
 
 == Installation and Setup
@@ -34,5 +35,5 @@ This plugin is licensed under the GNU GPL v2.  See COPYRIGHT.txt and GPL.txt for
 
 == Project help
 
-If you need help you can contact the maintainer at his email address (See CREDITS.txt) or create an issue in the Bug Tracker.  The bug tracker is located at  https://projects.littlestreamsoftware.com
+If you need help you can contact the maintainer at his email address (See CREDITS.txt).
 

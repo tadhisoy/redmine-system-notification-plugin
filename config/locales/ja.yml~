@@ -1,0 +1,11 @@
+ja:
+  system_notification: "システム通知"
+  field_time: Users since
+  field_body: ”本文”
+  field_users: Users
+  button_send: "送信"
+  text_24_hours: "24 時間"
+  text_1_week: "1 週間"
+  text_1_month: "1 月"
+  text_this_year: "今月"
+  text_all_time: "All"
